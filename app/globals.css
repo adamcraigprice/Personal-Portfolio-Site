@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme — off-white ground, softened blue/violet accents. */
+    --background: 240 20% 98%;
+    --foreground: 240 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+    --muted: 240 12% 94%;
+    --muted-foreground: 240 6% 40%;
+    --border: 240 10% 88%;
+    --accent: 255 60% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-alt: 215 70% 50%;
+    --ring: 255 60% 55%;
+    --mesh-opacity: 0.35;
+  }
+
+  .dark {
+    /* Dark theme (default) — deep charcoal near #0a0a0b. */
+    --background: 240 6% 4%;
+    --foreground: 210 20% 96%;
+    --card: 240 6% 7%;
+    --card-foreground: 210 20% 96%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 62%;
+    --border: 240 6% 16%;
+    --accent: 255 70% 70%;
+    --accent-foreground: 240 6% 6%;
+    --accent-alt: 215 80% 65%;
+    --ring: 255 70% 70%;
+    --mesh-opacity: 0.5;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Sections sit clear of the sticky nav when jumped to. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Shared glassmorphism-lite recipe used by every card on the page. */
+  .card-surface {
+    @apply rounded-xl border border-border/70 bg-card/60 backdrop-blur-md
+           shadow-sm transition-all duration-200 ease-out;
+  }
+
+  .card-surface-hover {
+    @apply hover:-translate-y-1 hover:border-accent/40 hover:bg-card/80
+           hover:shadow-lg hover:shadow-accent/5;
+  }
+}
+
+/* Respect the OS motion preference: kill drift, reveals, and smooth scroll. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
