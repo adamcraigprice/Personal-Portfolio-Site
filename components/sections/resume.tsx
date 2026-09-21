@@ -28,11 +28,7 @@ export function ResumeSection() {
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {resume.description}
                 </p>
-                <Button
-                  asChild
-                  variant={resume.primary ? "default" : "outline"}
-                  className="mt-auto w-full"
-                >
+                <Button asChild variant="contrast" className="mt-auto w-full">
                   <a href={resume.file} download>
                     <Download className="h-4 w-4" aria-hidden="true" />
                     Download

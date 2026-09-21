@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 
 import { siteConfig } from "@/lib/data";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ParticleBackground } from "@/components/particle-background";
 import "./globals.css";
 
 const inter = Inter({
@@ -76,7 +77,8 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <ParticleBackground />
+          <div className="relative z-10">{children}</div>
         </ThemeProvider>
       </body>
     </html>

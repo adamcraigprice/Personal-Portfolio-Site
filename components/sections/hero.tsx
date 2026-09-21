@@ -2,7 +2,6 @@ import { ArrowDown, Mail } from "lucide-react";
 
 import { siteConfig } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-import { GradientMesh } from "@/components/gradient-mesh";
 
 /**
  * The hero animates with CSS rather than Framer's `whileInView`, which ships
@@ -34,7 +33,6 @@ export function Hero() {
       aria-labelledby="home-heading"
       className="relative flex min-h-[92vh] items-center overflow-hidden"
     >
-      <GradientMesh />
       <div className="mx-auto w-full max-w-content px-6 py-32">
         <FadeUp>
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.25em] text-accent">

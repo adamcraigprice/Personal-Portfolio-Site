@@ -89,10 +89,11 @@ app/
   globals.css           design tokens + shared card recipe
   opengraph-image.tsx   generated social preview
 components/
+  particle-background.tsx  full-page directed-graph canvas background
   nav.tsx               sticky nav, scroll-spy, mobile menu
   section.tsx           section wrapper (landmark + heading)
   reveal.tsx            shared Framer Motion scroll-reveal
-  gradient-mesh.tsx     hero background glow
+  icons.tsx             inline GitHub / LinkedIn marks
   theme-provider.tsx    next-themes wrapper
   theme-toggle.tsx      dark/light toggle
   sections/             hero, about, resume, experience, projects, contact
@@ -104,6 +105,27 @@ lib/
   utils.ts              cn() class helper
 public/                 resume PDFs
 ```
+
+## Background
+
+[`components/particle-background.tsx`](components/particle-background.tsx) draws the full-page directed-graph field on a plain `<canvas>` with `requestAnimationFrame` — no particle library. It mounts once in the root layout as a fixed `z-0` layer; all page content sits in a `relative z-10` wrapper above it.
+
+Tuning constants live at the top of the file:
+
+| Constant | Effect |
+| --- | --- |
+| `AREA_PER_NODE`, `MAX_NODES`, `MAX_NODES_NARROW` | How many nodes, by viewport area (fewer on phones) |
+| `LINK_DIST` | Edge connect radius — **lower it for more separate clusters**, raise it to fuse the field into one mesh |
+| `LINE_ALPHA`, `NODE_ALPHA` | How visible the edges and nodes are |
+| `PACKET_MIN_GAP`, `PACKET_GAP_JITTER`, `MAX_PACKETS`, `PACKET_RADIUS` | Packet frequency, concurrency, and size |
+| `CURSOR_DIST`, `REPEL_DIST` | Cursor link radius and soft-repulsion radius |
+| `SECTION_BIAS` | Per-section density and clustering (Experience densest, About/Contact sparsest) |
+
+Colors are read from the `--accent` / `--accent-alt` CSS variables, so the background follows the palette in `globals.css` and recolors on theme toggle — there are no hard-coded colors in the component.
+
+It backs off when it should: the loop pauses when the tab is hidden, `prefers-reduced-motion` renders a single static frame with no drift, packets, or cursor interaction, cursor logic is skipped entirely on touch devices, and device pixel ratio is capped at 2x.
+
+The field draws across the whole page, behind text included — it is not cut out around copy. Cards stay readable instead via the `.card-surface` recipe in [`app/globals.css`](app/globals.css), which is deliberately translucent (`bg-card/45`) with only a light blur so the network shows through faintly. Lower that opacity to see more of the background through cards, raise it for more contrast on card text.
 
 ## Accessibility
 

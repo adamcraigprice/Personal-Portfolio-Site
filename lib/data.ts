@@ -44,7 +44,6 @@ export type Resume = {
   label: string;
   description: string;
   file: string;
-  primary: boolean;
 };
 
 export const resumes: Resume[] = [
@@ -52,13 +51,11 @@ export const resumes: Resume[] = [
     label: "Forward Deployed",
     description: "Client delivery, solutions engineering, and platform work.",
     file: "/resume.pdf",
-    primary: true,
   },
   {
     label: "Software Engineering",
     description: "Systems depth, pipelines, and backend engineering.",
     file: "/resume-swe.pdf",
-    primary: false,
   },
 ];
 

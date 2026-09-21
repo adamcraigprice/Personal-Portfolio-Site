@@ -16,6 +16,10 @@ const buttonVariants = cva(
           "bg-accent text-accent-foreground shadow-sm hover:shadow-md hover:shadow-accent/20 hover:brightness-110",
         outline:
           "border border-border bg-card/50 backdrop-blur-sm hover:border-accent/50 hover:bg-card hover:text-accent",
+        // Fixed black-on-white regardless of theme — used for the resume
+        // downloads, which should read as one neutral pair.
+        contrast:
+          "border border-neutral-300 bg-white text-neutral-950 shadow-sm hover:bg-neutral-100",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-accent underline-offset-4 hover:underline",
       },

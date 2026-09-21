@@ -59,14 +59,16 @@
 }
 
 @layer components {
-  /* Shared glassmorphism-lite recipe used by every card on the page. */
+  /* Shared glassmorphism-lite recipe used by every card on the page.
+     Kept deliberately translucent with only a light blur so the background
+     network stays faintly visible through the card. */
   .card-surface {
-    @apply rounded-xl border border-border/70 bg-card/60 backdrop-blur-md
+    @apply rounded-xl border border-border/70 bg-card/45 backdrop-blur-[2px]
            shadow-sm transition-all duration-200 ease-out;
   }
 
   .card-surface-hover {
-    @apply hover:-translate-y-1 hover:border-accent/40 hover:bg-card/80
+    @apply hover:-translate-y-1 hover:border-accent/40 hover:bg-card/60
            hover:shadow-lg hover:shadow-accent/5;
   }
 }
