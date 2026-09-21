@@ -33,8 +33,8 @@ npm run lint      # ESLint
 | --- | --- |
 | Name, tagline, email, GitHub/LinkedIn URLs | `siteConfig` |
 | Nav tabs (also drives scroll-spy) | `navItems` |
-| About narrative + education card | `about` |
-| Experience cards (summary + expandable bullets) | `experience` |
+| About narrative + education card | `about` (school logo: `about.education.logo`) |
+| Experience cards (summary + expandable bullets) | `experience` (company logo: `logo`) |
 | Technology chips by category | `skillGroups` |
 | Project cards, tags, and links | `projects` |
 | Resume download buttons | `resumes` |
@@ -53,6 +53,16 @@ Two resumes ship, surfaced side by side in the Resume section:
 | `public/resume-swe.pdf` | **Software Engineering** |
 
 **To update either resume, overwrite the file in `/public` with the same filename** — no code change needed. To change the labels or descriptions on the buttons, edit `resumes` in `lib/data.ts`.
+
+---
+
+## Logos
+
+Company and school logos live in `public/logos/` and are referenced by path from `lib/data.ts` — `logo` on each `experience` entry, and `about.education.logo`.
+
+To swap or add one: drop the file in `public/logos/` and point the `logo` field at it (e.g. `"/logos/acme.png"`). Transparent PNG or SVG, roughly square, ~256px is plenty — they render at about 32px.
+
+Every logo sits on a light tile ([`components/logo-tile.tsx`](components/logo-tile.tsx)). That isn't only decoration: the Marsh McLennan and Waterloo marks are near-black and would disappear against the dark card, so the tile keeps all of them legible in both themes.
 
 ---
 
@@ -93,6 +103,7 @@ components/
   nav.tsx               sticky nav, scroll-spy, mobile menu
   section.tsx           section wrapper (landmark + heading)
   reveal.tsx            shared Framer Motion scroll-reveal
+  logo-tile.tsx         company / school logo on a light tile
   icons.tsx             inline GitHub / LinkedIn marks
   theme-provider.tsx    next-themes wrapper
   theme-toggle.tsx      dark/light toggle
@@ -104,6 +115,7 @@ lib/
   data.ts               all site content
   utils.ts              cn() class helper
 public/                 resume PDFs
+  logos/                company + university logos
 ```
 
 ## Background

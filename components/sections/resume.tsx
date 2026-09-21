@@ -13,7 +13,7 @@ export function ResumeSection() {
       <Reveal>
         <Card className="mx-auto max-w-2xl p-8 text-center md:p-10">
           <p className="text-base leading-relaxed text-muted-foreground">
-            Two versions of the same story — pick whichever fits the role.
+            Two versions of the same experiences, focused on client work vs techincal implementation.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">

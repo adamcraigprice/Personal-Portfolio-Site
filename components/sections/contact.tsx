@@ -17,8 +17,7 @@ export function Contact() {
       <Section id="contact" heading="Get in touch" eyebrow="05 — Say hello">
         <Reveal className="max-w-2xl">
           <p className="text-base leading-relaxed text-muted-foreground">
-            I&apos;m always happy to talk about forward deployed engineering, AI
-            platforms, or an interesting problem you&apos;re stuck on.
+            I&apos;m always interested in new opportunities. Whether you want to discuss a project, internship, or just say hello, feel free to reach out!
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

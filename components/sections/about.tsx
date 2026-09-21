@@ -1,7 +1,6 @@
-import { GraduationCap } from "lucide-react";
-
 import { about } from "@/lib/data";
 import { Card } from "@/components/ui/card";
+import { LogoTile } from "@/components/logo-tile";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
 
@@ -22,10 +21,7 @@ export function About() {
 
         <Reveal delay={0.1}>
           <Card interactive className="p-6">
-            <GraduationCap
-              className="mb-4 h-6 w-6 text-accent"
-              aria-hidden="true"
-            />
+            <LogoTile src={about.education.logo} className="mb-4 h-12 w-12" />
             <p className="font-mono text-xs text-muted-foreground">
               {about.education.dates}
             </p>

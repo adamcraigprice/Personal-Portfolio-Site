@@ -6,13 +6,13 @@
 export const siteConfig = {
   name: "Adam Price",
   tagline: "Forward Deployed Engineer & Full-Stack Developer",
-  bio: "I build AI-driven data platforms — shipping large-scale ingestion, graph modeling, and vector search straight into production alongside the people who use them.",
+  bio: "Hey, welcome to my website! I'm a tech-lover who does everything from end-to-end architecture all the way through implementation.",
   email: "acprice@uwaterloo.ca",
   location: "Toronto, ON",
   github: "https://github.com/AdamCraigPrice",
   linkedin: "https://www.linkedin.com/in/AdamCraigPrice",
   // Set NEXT_PUBLIC_SITE_URL in Vercel once the domain is live.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adamprice.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adamcraigprice.vercel.app",
 } as const;
 
 export const navItems = [
@@ -30,13 +30,15 @@ export const about = {
   heading: "About",
   paragraphs: [
     "I'm a Computer Science student at the University of Waterloo specializing in Artificial Intelligence, with a minor in Entrepreneurship. Most of my work sits where machine learning meets real production systems: pipelines that move millions of records, graphs that model messy real-world catalogs, and agents that do something useful on the other end.",
-    "As a forward deployed engineer I spend as much time with clients as with code — running discovery workshops, scoping delivery, and then building the thing myself. I like the gap between what a customer says they need and what actually ships, and I like closing it quickly.",
+    "As a forward deployed/software engineer I love interacting with clients/stakeholders as well as implementing/shipping code. My specialty lies in understanding stakeholders, scoping delivery, and then building out the solution myself.",
+    "Currently, I am an intern at Conscia AI, a startup that provides a Product Data Layer and Experience Orchestration to big name retailers like Doc Martins, Love Sac, Landrover Jaguar, Holt Renfrew, etc. Spearheading client delivery I've loved workshopping with clients, to then translate their requierments into full scale production solutions for their product cataloges. Being exposed to product architecture, stakeholder management, AI solutioning and back-end implementation has been in invaluble experience these past months!",
   ],
   education: {
     school: "University of Waterloo",
     degree: "Bachelor of Computer Science — AI Specialization, Entrepreneurship Minor",
-    dates: "Sep 2023 – Present",
+    dates: "Sep 2023 – April 2028",
     location: "Waterloo, ON",
+    logo: "/logos/waterloo.png",
   },
 } as const;
 
@@ -64,6 +66,8 @@ export type Experience = {
   role: string;
   dates: string;
   location: string;
+  /** Logo in /public/logos. Drop a new file there and point this at it. */
+  logo: string;
   summary: string;
   bullets: string[];
 };
@@ -74,8 +78,9 @@ export const experience: Experience[] = [
     role: "Forward Deployed Solutions Engineer",
     dates: "May 2026 – Present",
     location: "Toronto, ON",
+    logo: "/logos/conscia.png",
     summary:
-      "Sole technical lead delivering Holt Renfrew's product data platform — engineering large-scale ingestion, graph modeling, and vector search over 1M+ SKUs while integrating SAP and Shopify end to end.",
+      "Sole technical lead delivering Holt Renfrew's product data platform; engineering large-scale ingestion, graph modeling, and vector search over 1M+ SKUs while integrating SAP and Shopify end to end.",
     bullets: [
       "Led end-to-end delivery of Holt Renfrew's product platform (PIM) as the sole technical resource.",
       "Ran discovery workshops across 4 client teams, translating conflicting requirements into a scoped delivery plan.",
@@ -92,6 +97,7 @@ export const experience: Experience[] = [
     role: "Software Developer",
     dates: "Sep 2025 – Jan 2026",
     location: "Toronto, ON",
+    logo: "/logos/marsh-mclennan.png",
     summary:
       "Built CI-gated database deployment pipelines across 300 databases and a security-focused prompt-injection scanner screening 1,000+ weekly pull requests.",
     bullets: [
@@ -107,6 +113,7 @@ export const experience: Experience[] = [
     role: "Site Reliability Engineer",
     dates: "Jan 2025 – Apr 2025",
     location: "Toronto, ON",
+    logo: "/logos/sun-life.png",
     summary:
       "Automated ticketing workflows and built an agentic LangGraph assistant while supporting Kubernetes infrastructure for 100+ teams.",
     bullets: [
@@ -120,6 +127,7 @@ export const experience: Experience[] = [
     role: "QA Data Analyst",
     dates: "May 2024 – Aug 2024",
     location: "Toronto, ON",
+    logo: "/logos/cibc.png",
     summary:
       "Managed and remediated test data for a tier-one banking application, automating QA reporting for the team.",
     bullets: [

@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Experience } from "@/lib/data";
 import { Card } from "@/components/ui/card";
+import { LogoTile } from "@/components/logo-tile";
 
 export function ExperienceCard({ item }: { item: Experience }) {
   const [open, setOpen] = React.useState(false);
@@ -29,14 +30,26 @@ export function ExperienceCard({ item }: { item: Experience }) {
 
   return (
     <Card interactive className="p-6 md:p-7">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className="text-lg font-semibold tracking-tight">{item.company}</h3>
-        <p className="font-mono text-xs text-muted-foreground">{item.dates}</p>
-      </div>
+      <div className="flex items-start gap-4">
+        <LogoTile src={item.logo} className="h-11 w-11" />
 
-      <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <p className="text-sm font-medium text-accent">{item.role}</p>
-        <p className="font-mono text-xs text-muted-foreground">{item.location}</p>
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 className="text-lg font-semibold tracking-tight">
+              {item.company}
+            </h3>
+            <p className="font-mono text-xs text-muted-foreground">
+              {item.dates}
+            </p>
+          </div>
+
+          <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <p className="text-sm font-medium text-accent">{item.role}</p>
+            <p className="font-mono text-xs text-muted-foreground">
+              {item.location}
+            </p>
+          </div>
+        </div>
       </div>
 
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
