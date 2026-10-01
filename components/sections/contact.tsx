@@ -3,6 +3,7 @@ import { Mail } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
 
@@ -16,28 +17,32 @@ export function Contact() {
     <>
       <Section id="contact" heading="Get in touch" eyebrow="05 — Say hello">
         <Reveal className="max-w-2xl">
-          <p className="text-base leading-relaxed text-muted-foreground">
-            I&apos;m always interested in new opportunities. Whether you want to discuss a project, internship, or just say hello, feel free to reach out!
-          </p>
+          <Card className="p-6 md:p-8">
+            <p className="text-base leading-relaxed text-muted-foreground">
+              I&apos;m always interested in new opportunities. Whether you want
+              to discuss a project, internship, or just say hello, feel free to
+              reach out!
+            </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg">
-              <a href={`mailto:${siteConfig.email}`}>
-                <Mail className="h-4 w-4" aria-hidden="true" />
-                {siteConfig.email}
-              </a>
-            </Button>
-
-            {socials.map(({ label, href, Icon }) => (
-              <Button key={label} asChild size="lg" variant="outline">
-                <a href={href} target="_blank" rel="noopener noreferrer">
-                  <Icon className="h-4 w-4" aria-hidden="true" />
-                  {label}
-                  <span className="sr-only"> (opens in a new tab)</span>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild size="lg">
+                <a href={`mailto:${siteConfig.email}`}>
+                  <Mail className="h-4 w-4" aria-hidden="true" />
+                  {siteConfig.email}
                 </a>
               </Button>
-            ))}
-          </div>
+
+              {socials.map(({ label, href, Icon }) => (
+                <Button key={label} asChild size="lg" variant="outline">
+                  <a href={href} target="_blank" rel="noopener noreferrer">
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                    {label}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </Button>
+              ))}
+            </div>
+          </Card>
         </Reveal>
       </Section>
 

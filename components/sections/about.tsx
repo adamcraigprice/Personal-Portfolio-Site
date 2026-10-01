@@ -8,15 +8,17 @@ export function About() {
   return (
     <Section id="about" heading={about.heading} eyebrow="01 — Who I am">
       <div className="grid gap-10 md:grid-cols-[1.6fr_1fr] md:gap-12">
-        <Reveal className="space-y-5">
-          {about.paragraphs.map((paragraph) => (
-            <p
-              key={paragraph.slice(0, 32)}
-              className="text-base leading-relaxed text-muted-foreground"
-            >
-              {paragraph}
-            </p>
-          ))}
+        <Reveal>
+          <Card className="h-full space-y-5 p-6 md:p-7">
+            {about.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 32)}
+                className="text-base leading-relaxed text-muted-foreground"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </Card>
         </Reveal>
 
         <Reveal delay={0.1}>
